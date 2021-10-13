@@ -1,0 +1,323 @@
+/* FONT*/
+@font-face {
+    font-family: Cinzel;
+    src: url(https://fonts.gstatic.com/s/cinzel/v9/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2);
+}
+
+@font-face {
+    font-family: Avenir-Light;
+    src: url(https://static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/0078f486-8e52-42c0-ad81-3c8d3d43f48e.woff2);
+}
+
+/* ======= */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Avenir-Light';
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    opacity: 60%;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+}
+
+body {
+    animation: main_content .5s;
+}
+
+header {
+    display: inline;
+}
+
+nav {
+    top: 0;
+    position: sticky;
+    padding: 50px;
+    z-index: 2;
+    background: linear-gradient(to left, #5a53ba, #8490d1);
+    animation-delay: .5s;
+    animation: navigation 1s;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section.home {
+    height: 80vh;
+}
+
+table {
+    overflow-x: auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.about_section {
+    position: relative;
+    margin: 10vh 6vw 20vh 6vw;
+    animation: content 3s;
+}
+
+.contact_banner {
+    background-image: url('assets/wallpaper.jpg');
+}
+
+.center {
+    text-align: center;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.grid-container {
+    display: grid;
+}
+
+.grid_biodata {
+    grid-template-columns: 50% 50%;
+}
+
+.grid-items {
+    background-color: rgba(202, 202, 214, 0.76);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-width: 100%;
+}
+
+.grid-items img {
+    text-align: center;
+}
+
+.grid-items > img.biodata_img {
+    margin-top: 25%;
+}
+
+.grid-items > h1 {
+    margin-top: 5%;
+    font-family: 'Cinzel';
+    font-size: 2.5em;
+    font-weight: 700;
+    letter-spacing: 0.1vw;
+}
+
+.grid-items h1, h2, h3 {
+    padding-bottom: 2%;
+}
+
+.grid-left-content {
+    min-height: 30vh;
+}
+
+.grid-items p {
+    padding-bottom: 5%;
+}
+
+.hero {
+    height: 90%;
+    width: 100%;
+    position: relative;
+    animation:  image_banner 1.5s;
+    animation-fill-mode: forwards;
+} 
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero::after {
+    content: "";
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.3;
+}
+
+.headline {
+    font-family: 'Cinzel';
+    position: absolute;
+    top: 60%;
+    left: 12%;
+    font-size: 5.8vw;
+    transform: translate(-20%, 70%);
+    color: white;
+    z-index: 1;
+}
+
+.nav-left {
+    padding-left: 1.8em;
+}
+
+.nav-right {
+    padding-right: .7em;
+}
+
+.nav-left a {
+    font-family: 'Cinzel';
+    font-size: 1.6em;
+}
+
+.nav-right a {
+    font-size: 1.125em;
+    margin-right: 3em;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 260vh;
+    background: linear-gradient(to left, #5a53ba, #8490d1);
+    z-index: -1;
+    animation: slide 1s ease-in-out;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    animation: content 2s;
+}
+
+footer p {
+    margin: 1.15vw;
+}
+
+footer a {
+    margin: 1.15vw;
+}
+
+footer a:hover {
+    opacity: 70%;
+}
+
+footer img {
+    width: 1.25em;
+}
+
+
+/* RESPONSIVE */
+@media screen and (max-width: 1000px) {
+    .hero img {
+        flex: 100%;
+    }
+
+    .slider {
+        min-height: 2500px;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .float-left {
+        display: none;
+    }
+
+    .float-right {
+        float: none;
+    }
+
+    .grid-items {
+        padding-left: 2vw;
+        padding-right: 2vw;
+    }
+
+    .grid-items > h1 {
+        font-size: 1.5em;
+    }
+    
+    .grid_biodata {
+        grid-template-columns: 100%;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .nav-leff a, .nav-right a{
+        margin-right: 5px;
+        font-size: 16px;
+    }
+    .grid-items > img.biodata_img {
+        margin-top: 15%;
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 240px) {
+    .grid-items img {
+        width: 50%;
+    }
+    
+    .nav-leff a, .nav-right a{
+        margin-right: 2px;
+        font-size: 12px;
+    }
+}
+
+
+@keyframes slide {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 0%;
+    }
+}
+
+@keyframes navigation {
+    0% {
+        top: -100%;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+@keyframes main_content {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes image_banner {
+    0% {
+        height: 90%;
+        width: 100%;
+    }
+    100% {
+        height: 80%;
+        width: 90%;
+    }
+}
+
+@keyframes content {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

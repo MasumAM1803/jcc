@@ -1,0 +1,32 @@
+body {
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+    background-color: #ccc;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    opacity: 60%;
+    text-decoration: underline;
+}
+
+.home, .contact {
+    margin-top: 40px;
+    font-size: 18px;
+}
+
+.menu {
+    padding: 20px;
+}
+
+ul {
+    text-align: justify;
+    list-style-type: square;
+}

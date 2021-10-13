@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <input v-model="userNames" type="text">
+    <button v-on:click="addNames()" v-show="add">add</button>
+    <button v-on:click="updateNames()" v-show="update">update</button>
+    <ul>
+      <li v-for="(names, index) in users" :key='index'>
+          {{ names.name }}
+          <button @click="editNames(index)">edit</button> ||
+          <button @click="removeNames(index)">delete</button>
+        </li>
+    </ul>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+   var vm = new Vue({
+      el: '#app',
+      data: {
+          users : [
+              {
+                  'name' : 'Muhammad Iqbal Mubarok',
+              },
+              {
+                  'name' : 'Ruby Purwanti',
+              },
+              {
+                  'name' : 'Faqih Muhammad',
+              },
+          ],
+          userNames : '',
+          indexs: '',
+          add: true,
+          update: false,
+          deletedName: true
+      },
+      computed : {
+
+      },
+      methods : {
+        addNames: function () {
+            var newNames = this.userNames.trim();
+            for (let i = 0; i < this.users.length; i++) {
+                if (newNames == this.users[i].name)
+                return Vue.set(this.users, i, {'name' : newNames}), this.userNames = '';
+            }
+            this.users.push(
+                {'name' : newNames}
+            );
+            this.userNames = ''
+        },
+        removeNames: function (index) { 
+            this.deletedName = confirm('Are you sure you delete the data?')
+            if (this.deletedName == true) {
+                this.users.splice(index, 1)
+            }
+        },
+        editNames: function (index) {
+            this.userNames = this.users[index].name
+            this.indexs = index
+            this.add = false
+            this.update = true
+        },
+        updateNames: function() {
+            this.users[this.indexs].name = this.userNames
+            this.userNames = ''
+            this.add = true
+            this.update = false
+        }
+      }
+  })
+  </script>
+</body>
+</html>

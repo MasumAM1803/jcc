@@ -1,0 +1,8 @@
+Pertama kali saya belajar yaitu saat kuliah, dan hal yang pertama yang di pelajari adalah algoritma dasar.
+Saya sangat kesusahan saat belajar Algoritma sehingga meminta temen saya untuk mengajarkan saya.
+semester demi semester saya belajat pemrograman yaa mungkin seadanya yang diberikan oleh pihak kampus.
+namun saat semester 6/7 saya baru benar-benar tertarik dengan pemrograman. 
+sekitar semester 7 saya baru belajar python karena bahasa pemrograman itu saya akan gunakan untuk tugas akhir saya.
+saya sangat tertarik dengan itu. saya mencoba-coba terus hingga akhirnya saya sidang dan lulus.
+kemudian setelah lulus saya pun menjadi tertarik dengan front-end web. yang akhirnya saya belajar dasar-dasar kembali mengenai html, css, dan javascript.
+yang padahal di kampus pernah di ajarkan namun saya hanya tahu sedikit dan tidak mendalami. Kemudian sekarang saya fokus untuk front-end dan python

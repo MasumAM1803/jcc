@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <h1>BETTA FISH LIBRARY</h1>
+        
+        <router-link class="menu" to="/">Home</router-link>
+        <router-link class="menu" to="/contact">Contact Us</router-link>
+        <router-link class="menu" to="/categories">List Betta Fish</router-link>
+
+        <router-view></router-view>
+    </div>
+    
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://unpkg.com/vuex"></script>
+    <script type="module">
+
+        import { CategoriesComponent } from './CategoriesComponent.js'
+        import { CategoryComponent } from './CategoryComponent.js'
+
+        const Home = { template: '<div class="home">Ini Halaman Home</div>' }
+        const Contact = { template: '<div class="contact">Ini Halaman Contact Us</div>' }
+
+        const routes = [
+        { path: '/', component: Home , alias: '/home'},
+        { path: '/contact', component: Contact, meta: {login: true} },
+        { path: '/categories', component: CategoriesComponent, meta: {login: true, role:true}},
+        { path: '/category/:id', component: CategoryComponent },
+        { path: '*', redirect: '/'}
+        ]
+
+        const router = new VueRouter({
+        routes
+        })
+
+        router.beforeEach((to, from, next) => {
+            if(to.matched.some(record => record.meta.login)) {
+                let auth = true
+                if (!auth) {
+                    alert('Halaman ini hanya untuk user yang sudah login!')
+                    next(false)
+                } else {
+                    if(to.matched.some(record => record.meta.role)) {
+                        let role = prompt('Pilih Role "user" atau "admin"?')
+                        if (role === 'admin') {
+                            next()
+                        } else {
+                            alert('Halaman ini hanya untuk admin!')
+                            next(false)
+                        }
+                    } else {
+                        alert('Anda sudah login')
+                        next()
+                    }
+                }
+            } else {
+                next()
+            }
+        })
+
+        const store = new Vuex.Store({
+            state: {
+                roles: [
+                    {
+                        name: 'admin'
+                    },
+                    {
+                        name: 'user'
+                    }
+                ]
+            }, 
+            mutations: {
+
+            },
+            getters: {
+                
+            }
+        })
+        
+        var vm = new Vue({ 
+        el: '#app', 
+        router
+        })
+    </script>
+</body>
+</html>
